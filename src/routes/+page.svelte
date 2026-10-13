@@ -2,7 +2,10 @@
 	import { CONTACT_EMAIL } from '$lib/utils/constants.ts';
 
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
+
+<Seo />
 
 <section class="hero container">
 	<h1>Unity Developer.<br>Gameplay Systems.<br><span class="red-text">Interactive 3D.</span></h1>
