@@ -1,21 +1,16 @@
 <script lang="ts">
-	import favicon from '/icons/favicon.svg';
 	import '../app.css';
-	import Navbar from '$lib/components/navigation/Navbar.svelte';
+	import Header from '$lib/components/navigation/Header.svelte';
 	import Footer from '$lib/components/navigation/Footer.svelte';
-
-	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
-	<title>Cheesy Labs</title>
+	<title>Nacho Colorado | Interactive Software Developer</title>
+	<meta name="description" content="I build interactive software, combining solid engineering with thoughtful interaction and design. Unity, C#, Gameplay Systems, and UI." />
 </svelte:head>
 
-<Navbar />
-
-{@render children()}
-
-<!--<Banner />-->
-
+<Header />
+<main>
+	<slot />
+</main>
 <Footer />

@@ -1,205 +1,64 @@
 <script lang="ts">
-	import { COMPANY_TAGLINE, INSTAGRAM_URL, BLUESKY_URL, YOUTUBE_URL, DISCORD_INVITE } from '$lib/utils/constants.ts';
-
-	const year = new Date().getFullYear();
-
-	const sitemap = [
-		{ name: "Services", href: "/#services" },
-		{ name: "About", href: "/about" },
-		{ name: "Work", href: "/portfolio" },
-		{ name: "Contact", href: "/#contact" }
-	];
-
-	const legal = [
-		{ name: "Cookies", href: "/cookies" },
-		{ name: "Licences", href: "/licences" },
-		{ name: "Privacy", href: "/privacy" },
-		{ name: "Terms", href: "/terms" }
-	];
-
-	const socials = [
-		{ name: "Instagram", href: INSTAGRAM_URL, icon: "/icons/instagram.svg" },
-		{ name: "Bluesky", href: BLUESKY_URL, icon: "/icons/bluesky.svg" },
-		{ name: "YouTube", href: YOUTUBE_URL, icon: "/icons/youtube.svg" },
-		{ name: "Discord", href: DISCORD_INVITE, icon: "/icons/discord.svg" },
-	];
+	import { COMPANY_TAGLINE, GITHUB_URL, ITCHIO_URL, LINKEDIN_URL, FIVERR_URL } from '$lib/utils/constants.ts';
 </script>
 
-<footer class="footer">
-	<div class="container">
-
-		<!-- BRAND COLUMN -->
-		<div class="col col-brand">
-			<div class="brand-flex">
-				<div class="brand-logo">
-					<!-- Ensure this path exists or use a fallback -->
-					<img src="/icons/favicon.svg" alt="Cheesy Labs Logo" />
-				</div>
-
-				<div class="brand-text">
-					<h3 class="footer-title">Cheesy Labs</h3>
-					<p>{COMPANY_TAGLINE}</p>
-					<p>© {year} Cheesy Labs Inc.</p>
-				</div>
-			</div>
-
-			<div class="socials-row">
-				{#each socials as link}
-					<a href={link.href} aria-label={link.name} target="_blank" rel="noreferrer">
-						<img src={link.icon} alt={link.name}>
-					</a>
-				{/each}
-			</div>
+<footer>
+	<div class="container footer-content">
+		<div class="brand-footer">
+			<div class="monogram">NC</div>
+			<p>{COMPANY_TAGLINE}</p>
 		</div>
-
-		<!-- SITEMAP -->
-		<div class="col col-sitemap">
-			<h4 class="footer-head">Sitemap</h4>
-			{#each sitemap as link}
-				<a href={link.href}>{link.name}</a>
-			{/each}
+		<div class="links">
+			<a href={GITHUB_URL} target="_blank" rel="external noopener">GitHub</a>
+			<a href={LINKEDIN_URL} target="_blank" rel="external noopener">LinkedIn</a>
+			<a href={ITCHIO_URL} target="_blank" rel="external noopener">Itch.io</a>
+			<a href={FIVERR_URL} target="_blank" rel="external noopener">Fiverr</a>
 		</div>
-
-		<!-- LEGAL -->
-		<div class="col col-legal">
-			<h4 class="footer-head">Legal</h4>
-			{#each legal as link}
-				<a href={link.href}>{link.name}</a>
-			{/each}
-		</div>
-
 	</div>
 </footer>
 
 <style>
-    .footer {
-        margin-top: 4rem;
-        border-top: var(--border-big);
-        background: var(--dark);
-        color: var(--light);
-        padding: 4rem 1.5rem;
-        font-family: var(--font-body);
+    footer {
+        border-top: 1px solid rgba(25, 26, 29, 0.1);
+        padding: 4rem 0;
+        margin-top: 6rem;
     }
 
-    /* ===== DESKTOP LAYOUT (DEFAULT) ===== */
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
+    .footer-content {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
-        gap: 2rem;
+        align-items: flex-end;
     }
 
-    /* Brand Column (Left Side) */
-    .col-brand {
-        flex: 0 0 40%;
-        text-align: left;
-    }
-
-    .brand-flex {
+    .brand-footer .monogram {
+        background-color: var(--text-ink);
+        color: var(--bg-ivory);
+        width: 24px;
+        height: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
     }
 
-    .brand-logo img {
-        width: 64px;
-        height: auto;
+    .brand-footer p {
+        margin: 0;
+        color: var(--text-slate);
     }
 
-    .socials-row {
-        flex: 1;
+    .links {
         display: flex;
-        flex-direction: row; /* Horizontal icons on mobile */
         gap: 1.5rem;
-        justify-content: center;
-				padding-top: 2rem;
     }
 
-    .socials-row img {
-        width: 2rem;
-        height: 2rem;
-        transition: transform 0.2s;
+    .links a {
+        color: var(--text-slate);
+        font-weight: 500;
     }
 
-    .socials-row a:hover img {
-        transform: scale(1.1);
-    }
-
-    /* Typography */
-    .footer-title {
-        font-family: var(--font-h1);
-        color: var(--primary);
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
-    }
-
-    .footer-head {
-        font-family: var(--font-h1);
-        color: var(--pink);
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        margin-top: 0;
-        text-transform: uppercase;
-    }
-
-    a {
-        color: var(--light);
-        text-decoration: none;
-        margin-bottom: 0.5rem;
-        display: block;
-        opacity: 0.8;
-        transition: color 0.2s;
-    }
-    a:hover {
-        color: var(--primary);
-        opacity: 1;
-    }
-
-    /* ===== MOBILE LAYOUT (OVERRIDES) ===== */
-    @media (max-width: 768px) {
-        .container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem 1.5rem;
-            justify-items: center;
-        }
-
-        .container > .col {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* 1. Brand takes full top row */
-        .col-brand {
-            grid-column: span 2;
-            grid-row: 1;
-            flex: auto;
-        }
-
-        .brand-flex {
-            justify-content: center;
-            text-align: left; /* Keep text aligned left relative to logo, but block is centered */
-        }
-
-        .socials-row img {
-            width: 3rem; /* Larger touch targets */
-            height: 3rem;
-        }
-
-        /* 3. Sitemap & Legal sit side-by-side on bottom row */
-        .col-sitemap {
-            grid-row: 3;
-        }
-
-        .col-legal {
-            grid-row: 3;
-        }
+    .links a:hover {
+        color: var(--accent-red);
     }
 </style>
