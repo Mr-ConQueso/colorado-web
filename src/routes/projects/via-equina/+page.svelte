@@ -4,11 +4,11 @@
 
 
 <Seo
-	title="Masked Approval | Nacho Colorado"
-	description="Explore Masked Approval, an interactive game developed by Nacho Colorado. Discover its gameplay, design, and development process."
-	path="/projects/masked-approval"
-	image="/images/projects/masked-approval-social.jpg"
-	imageAlt="Masked Approval — game artwork and project preview"
+	title="Via Equina | Nacho Colorado"
+	description="Minecraft Java mod integrating automated horseback navigation and UI into an existing road network."
+	path="/projects/via-equina"
+	image="/images/projects/via-equina-social.jpg"
+	imageAlt="Via Equina — mod artwork and project preview"
 />
 
 <div class="project-header container">

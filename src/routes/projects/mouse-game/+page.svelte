@@ -4,11 +4,11 @@
 
 
 <Seo
-	title="Masked Approval | Nacho Colorado"
-	description="Explore Masked Approval, an interactive game developed by Nacho Colorado. Discover its gameplay, design, and development process."
-	path="/projects/masked-approval"
-	image="/images/projects/masked-approval-social.jpg"
-	imageAlt="Masked Approval — game artwork and project preview"
+	title="Mouse Game | Nacho Colorado"
+	description="An arcade game about a mouse racing to build a gaming setup."
+	path="/projects/mouse-game"
+	image="/images/projects/mouse-game-social.jpg"
+	imageAlt="Mouse Game — game artwork and project preview"
 />
 
 <div class="project-header container">

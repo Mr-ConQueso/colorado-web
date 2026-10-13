@@ -4,7 +4,8 @@
 		LINKEDIN_URL,
 		ITCHIO_URL,
 		FIVERR_URL,
-		WEBSITE_URL
+		WEBSITE_URL,
+		COMPANY_NAME
 	} from '$lib/utils/constants.ts';
 
 	export let title: string =
@@ -35,7 +36,7 @@
 	const personJsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'Person',
-		name: 'Nacho Colorado',
+		name: COMPANY_NAME,
 		url: WEBSITE_URL,
 		jobTitle: 'Interactive Software Developer',
 		description:
@@ -62,7 +63,7 @@
 	<!-- General SEO -->
 	<title>{title}</title>
 	<meta name="description" content={description} />
-	<meta name="author" content="Nacho Colorado" />
+	<meta name="author" content={COMPANY_NAME} />
 	<meta name="robots" content={robotsContent} />
 
 	<!-- Canonical URL: the preferred URL for this page -->
@@ -71,7 +72,7 @@
 	<!-- Open Graph: WhatsApp, Facebook, LinkedIn, Discord,
 	     Telegram and many other link preview consumers -->
 	<meta property="og:locale" content="en_GB" />
-	<meta property="og:site_name" content="Nacho Colorado" />
+	<meta property="og:site_name" content={COMPANY_NAME} />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
@@ -92,7 +93,7 @@
 	<meta name="twitter:image:alt" content={imageAlt} />
 
 	<!-- Personal identity structured data: homepage only -->
-	<!--{#if path === '/'}-->
-	<!--	<div>{@html personJsonLd}</div>-->
-	<!--{/if}-->
+	{#if path === '/'}
+		{@html `<script type="application/ld+json">${personJsonLd}</script>`}
+	{/if}
 </svelte:head>

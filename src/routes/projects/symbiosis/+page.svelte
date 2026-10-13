@@ -4,11 +4,11 @@
 
 
 <Seo
-	title="Masked Approval | Nacho Colorado"
-	description="Explore Masked Approval, an interactive game developed by Nacho Colorado. Discover its gameplay, design, and development process."
-	path="/projects/masked-approval"
-	image="/images/projects/masked-approval-social.jpg"
-	imageAlt="Masked Approval — game artwork and project preview"
+	title="Symbiosis | Nacho Colorado"
+	description="A resource-management strategy game where you manage, expand, and evolve colonies of microorganisms."
+	path="/projects/symbiosis"
+	image="/images/projects/symbiosis-social.jpg"
+	imageAlt="Symbiosis — project preview"
 />
 
 <div class="project-header container">
