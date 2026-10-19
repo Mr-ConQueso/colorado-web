@@ -7,7 +7,7 @@
 	title="Mouse Game | Nacho Colorado"
 	description="An arcade game about a mouse racing to build a gaming setup."
 	path="/projects/mouse-game"
-	image="/images/projects/mouse-game-social.jpg"
+	image="/images/social/mouse-game-social.jpg"
 	imageAlt="Mouse Game — game artwork and project preview"
 />
 

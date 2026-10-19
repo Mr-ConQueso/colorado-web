@@ -7,7 +7,7 @@
 	title="Symbiosis | Nacho Colorado"
 	description="A resource-management strategy game where you manage, expand, and evolve colonies of microorganisms."
 	path="/projects/symbiosis"
-	image="/images/projects/symbiosis-social.jpg"
+	image="/images/social/symbiosis-social.jpg"
 	imageAlt="Symbiosis — project preview"
 />
 

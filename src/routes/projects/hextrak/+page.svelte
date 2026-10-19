@@ -4,56 +4,58 @@
 
 
 <Seo
-	title="Via Equina | Nacho Colorado"
-	description="Minecraft Java mod integrating automated horseback navigation and UI into an existing road network."
-	path="/projects/via-equina"
-	image="/images/projects/via-equina-social.jpg"
-	imageAlt="Via Equina — mod artwork and project preview"
+	title="Crop Guardian | Nacho Colorado"
+	description="An arcade-like game where you fend off hordes of aliens trying to claim your crops."
+	path="/projects/crop-guardian"
+	image="/images/social/hextrak-social.jpg"
+	imageAlt="Crop Guardian — game artwork and project preview"
 />
 
 <div class="project-header container">
 	<div class="tags">
-		<span class="tag">Java</span>
-		<span class="tag">NeoForge 1.21.1</span>
-		<span class="tag">Minecraft Mod</span>
+		<span class="tag">Unity</span>
+		<span class="tag">C#</span>
+		<span class="tag">Solo Programmer</span>
+		<span class="tag">Optimization</span>
+		<span class="tag">Nintendo 3DS</span>
 	</div>
-	<h1>Via Equina</h1>
-	<p class="lead">Assisted Horseback Navigation and Mod Ecosystem Integration.</p>
+	<h1>Crop Guardian</h1>
+	<p class="lead">End-to-End Unity Systems and Gameplay Implementation.</p>
 </div>
 
 <div class="hero-media container">
-	<video src="/videos/via-equina-loop.mp4" autoplay loop muted playsinline></video>
+	<video src="/videos/crop-guardian-loop.mp4" autoplay loop muted playsinline></video>
 </div>
 
 <article class="container project-content">
 	<div class="sidebar">
 		<div class="meta-block">
 			<h4>Role</h4>
-			<p>Individual Mod Developer</p>
+			<p>Sole Programmer (Team Project)</p>
 		</div>
 		<div class="meta-block">
 			<h4>Focus</h4>
-			<p>Ecosystem integration, pathfinding logic, UI overlay.</p>
+			<p>Progression systems, object pooling, wave defense loops.</p>
 		</div>
 		<div class="meta-block mt-4">
-			<a href="https://modrinth.com" target="_blank" rel="noopener noreferrer" class="btn-primary">View on Modrinth</a>
+			<a href="https://pro-historic.itch.io/crop-guardian" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
 		</div>
 	</div>
 
 	<div class="main-content">
-		<h2>Modding & Ecosystem Integration</h2>
-		<p>Via Equina is a Minecraft Java mod built on NeoForge 1.21.1. It acts as an add-on to the existing Via Romana mod infrastructure, extending its static road network with intelligent, assisted horseback travel systems.</p>
+		<h2>Complete Engineering Ownership</h2>
+		<p>Crop Guardian is an arcade-style game in which players defend their crops against waves of invading aliens. As the project's sole programmer and Unity developer, I was responsible for taking the concept from design to a fully playable experience, integrating all gameplay logic and art assets.</p>
 
-		<h2>Navigation & HUD Implementation</h2>
-		<p>This project demonstrates my ability to read, adapt, and build upon an existing codebase. I programmed horses to automatically follow established route graphs, dynamically read intersections based on rider input, and halt smoothly at the end of a road block sequence.</p>
+		<h2>Progression & Game Loop</h2>
+		<p>I architected the structured wave-based levels and an endless mode. To give the game a satisfying progression loop, I developed a weapon shop and upgrade system where players spend rewards earned from defeating enemies and bosses.</p>
 
 		<div class="technical-callout">
-			<img src="/images/via-equina-hud.jpg" alt="Custom riding HUD showing stamina and gaits" />
-			<span class="caption">Custom UI integration for the gait and stamina management system.</span>
+			<img src="/images/crop-guardian-pooling.jpg" alt="Diagram showing object pooling architecture" />
+			<span class="caption">Memory optimization using an Object Pooling system.</span>
 		</div>
 
-		<h2>Gameplay Mechanics</h2>
-		<p>In addition to the road logic, I designed and implemented a custom horse gait and stamina management system. This system is fully integrated into the game loop with a bespoke on-screen HUD, adding a layer of resource management to traversal without breaking the game's core feel.</p>
+		<h2>Optimization via Object Pooling</h2>
+		<p>Because arcade defense games generate high volumes of projectiles, enemies, and visual effects, standard instantiation would have caused significant memory allocation spikes and garbage collection stutter. I implemented a robust object pooling system for enemies, audio sources, particle effects, and decals to reuse assets efficiently and maintain frame stability.</p>
 	</div>
 </article>
 

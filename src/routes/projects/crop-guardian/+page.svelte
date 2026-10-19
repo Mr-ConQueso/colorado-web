@@ -7,7 +7,7 @@
 	title="Crop Guardian | Nacho Colorado"
 	description="An arcade-like game where you fend off hordes of aliens trying to claim your crops."
 	path="/projects/crop-guardian"
-	image="/images/projects/crop-guardian-social.jpg"
+	image="/images/social/crop-guardian-social.jpg"
 	imageAlt="Crop Guardian — game artwork and project preview"
 />
 
