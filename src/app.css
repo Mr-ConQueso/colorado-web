@@ -3,7 +3,7 @@
 
 :root {
     /* Heights & Spacing */
-    --header-height: 80px;
+    --header-height: 60px;
 
     /* Main Brand Colors */
     --bg-primary: #f5f3ee;
@@ -36,4 +36,12 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }

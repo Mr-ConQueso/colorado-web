@@ -1,8 +1,10 @@
-<!-- src/lib/components/ExperienceTimeline.svelte -->
 <script lang="ts">
 	import { FIVERR_URL, RESUME } from '$lib/utils/constants.ts';
 	import TextButton from '$lib/components/generic/TextButton.svelte';
 	import Button from '$lib/components/generic/Button.svelte';
+	import { asset } from '$app/paths';
+	import type { Pathname } from '$app/types';
+	import Dot from '$lib/components/generic/Dot.svelte';
 
 	const experiences = [
 		{
@@ -31,8 +33,7 @@
 
 <section class="experience-section" id="experience">
 	<div class="timeline">
-		{#each experiences as exp, i}
-			<!-- Alternating indent to create the winding path effect -->
+		{#each experiences as exp, i (exp.linkUrl)}
 			<div class="timeline-item" class:indented={i % 2 !== 0}>
 
 				<div class="dot-wrapper">
@@ -55,9 +56,9 @@
 					<div class="header">
 						<h3 class="role-title">
 							<span class="role">{exp.role}</span>
-							<span class="separator">&bull;</span>
+							<Dot style="color: #d84b45; margin: 0 0.3rem;"/>
 							<TextButton
-								href={exp.linkUrl}
+								href={exp.linkUrl as Pathname & {}}
 								text={exp.company}
 								style="font-size: 1.2rem;"
 							/>
@@ -71,9 +72,8 @@
 		{/each}
 	</div>
 
-	<!-- Rounded CTA Button -->
 	<div class="cta-wrapper">
-		<Button href={RESUME} text="VIEW FULL RESUME" />
+		<Button href={asset(RESUME) as Pathname & {}} text="VIEW FULL RESUME" download/>
 	</div>
 </section>
 
@@ -183,11 +183,6 @@
         gap: 0.2rem;
     }
 
-    .separator {
-        color: #d84b45;
-        margin: 0 0.3rem;
-    }
-
     .date {
         font-size: 0.85rem;
         font-weight: 800;
@@ -211,34 +206,6 @@
         display: flex;
         justify-content: flex-start;
         padding-left: calc(var(--dot-size) + 2rem);
-    }
-
-    .resume-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem 2rem;
-        background-color: #ffffff;
-        color: #1a1a1a;
-        font-weight: 900;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        letter-spacing: 0.5px;
-        border-radius: 14px;
-        border: 2px solid #1a1a1a;
-        box-shadow: 0 6px 0 #1a1a1a;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .resume-btn:hover {
-        transform: translateY(2px);
-        box-shadow: 0 4px 0 #1a1a1a;
-    }
-
-    .resume-btn:active {
-        transform: translateY(6px);
-        box-shadow: 0 0 0 #1a1a1a;
     }
 
     @media (max-width: 768px) {

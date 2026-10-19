@@ -4,7 +4,10 @@
 	import Marquee from '$lib/components/Marquee.svelte';
 	import Hero from '$lib/components/sections/Hero.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
+
+<Seo />
 
 <main class="portfolio-page">
 	<Hero />

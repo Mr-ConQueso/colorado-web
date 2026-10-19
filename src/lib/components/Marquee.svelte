@@ -1,4 +1,3 @@
-<!-- src/lib/landing3/Marquee.svelte -->
 <script lang="ts"></script>
 
 <div class="marquee-container">

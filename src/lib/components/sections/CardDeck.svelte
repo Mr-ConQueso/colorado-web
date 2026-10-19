@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/generic/ProjectCard.svelte';
+	import { resolve } from '$app/paths';
 
-	// Default cards matching your portfolio project list
 	export let cards = [
 		{
 			id: 'modding',
@@ -14,7 +14,8 @@
 			bgGradient: 'linear-gradient(180deg, #7c3be8 0%, #3e1891 100%)',
 			tagBgColor: '#d5b8ff',
 			tagTextColor: '#2b0060',
-			buttonBgColor: '#4e21ab'
+			buttonBgColor: '#4e21ab',
+			buttonLink: resolve('/projects/modding')
 		},
 		{
 			id: 'mouse-game',
@@ -27,7 +28,8 @@
 			bgGradient: 'linear-gradient(180deg, #ff2d75 0%, #991040 100%)',
 			tagBgColor: '#ffb8d2',
 			tagTextColor: '#50001c',
-			buttonBgColor: '#a81143'
+			buttonBgColor: '#a81143',
+			buttonLink: resolve('/projects/mouse-game')
 		},
 		{
 			id: 'crop-guardian',
@@ -40,7 +42,8 @@
 			bgGradient: 'linear-gradient(180deg, #edbb00 0%, #874900 100%)',
 			tagBgColor: '#fce476',
 			tagTextColor: '#5e3700',
-			buttonBgColor: '#a75d00'
+			buttonBgColor: '#a75d00',
+			buttonLink: resolve('/projects/crop-guardian')
 		},
 		{
 			id: 'symbiosis',
@@ -53,20 +56,22 @@
 			bgGradient: 'linear-gradient(180deg, #1ad8a2 0%, #087556 100%)',
 			tagBgColor: '#a2f3dc',
 			tagTextColor: '#01402e',
-			buttonBgColor: '#0a8260'
+			buttonBgColor: '#0a8260',
+			buttonLink: resolve('/projects/symbiosis')
 		},
 		{
-			id: 'networking',
-			logoSrc: '/test/Logo.png',
+			id: 'hextrak',
+			logoSrc: '/images/projects/hextrak/Logo.png',
 			logoHeight: '110px',
-			characterSrc: '/test/BoneMarauder.png',
+			characterSrc: '/images/projects/hextrak/BoneMarauder.png',
 			characterHeight: '45%',
 			tags: ['NETWORKING', 'UI/UX', 'MOBILE'],
 			description: 'Local-first cross-platform application architectures.',
 			bgGradient: 'linear-gradient(180deg, #3855ff 0%, #1527a0 100%)',
 			tagBgColor: '#b8c8ff',
 			tagTextColor: '#091452',
-			buttonBgColor: '#1d31b8'
+			buttonBgColor: '#1d31b8',
+			buttonLink: resolve('/projects/hextrak')
 		}
 	];
 
@@ -113,7 +118,7 @@
 	on:touchend={handleTouchEnd}
 >
 	<div class="deck-wrapper">
-		{#each cards as card, i}
+		{#each cards as card, i (i)}
 			<div
 				class="card-slot card-{i + 1}"
 				class:is-active={i === activeIndex}
@@ -144,7 +149,6 @@
 </section>
 
 <style>
-    /* Card Fan Deck Container */
     .deck-container {
         width: 100%;
         display: flex;
@@ -157,7 +161,6 @@
         user-select: none;
     }
 
-    /* DESKTOP DEFAULT WRAPPER */
     .deck-wrapper {
         position: relative;
         width: 360px;
@@ -170,7 +173,6 @@
     .card-slot {
         position: absolute;
         bottom: 0;
-        /* Since ProjectCard is now 100%, we strictly enforce desktop dimensions here */
         width: 100%;
         height: 100%;
         transform-origin: bottom center;
@@ -183,7 +185,6 @@
     .card-4 { transform: translateX(170px) translateY(30px) rotate(8deg); z-index: 2; }
     .card-5 { transform: translateX(340px) translateY(80px) rotate(16deg); z-index: 1; }
 
-    /* Hover Effects for Desktop */
     @media (min-width: 901px) {
         .card-slot:hover { z-index: 10; }
         .card-1:hover { transform: translateX(-340px) translateY(40px) rotate(-12deg) scale(1.02); }
@@ -196,44 +197,36 @@
     /* MOBILE TINDER-STYLE SWIPE CAROUSEL (<= 900px) */
     @media (max-width: 900px) {
         .deck-container {
-            /* Makes the container perfectly span edges skipping body padding */
             width: 100vw;
             margin-left: calc(50% - 50vw);
-
-            /* Taller card area */
-            height: 560px;
+						height: 65vh;
             padding-bottom: 0;
         }
 
         .deck-wrapper {
-            /* Resets the translateY drop applied to Desktop */
-            transform: translateY(0);
-            /* Expand relative to the full screen for edge-to-edge span */
+            transform: translateY(30px);
             width: 82vw;
             max-width: 420px;
             /* Taller cards */
-            height: 540px;
+            height: 65vh;
         }
 
         .card-1, .card-2, .card-3, .card-4, .card-5 {
             transform: none;
         }
 
-        /* Active Center Card */
         .card-slot.is-active {
             transform: translateX(var(--drag-offset)) scale(1);
             z-index: 5;
             opacity: 1;
         }
 
-        /* Tilted Card pushed to the far Left */
         .card-slot.is-prev {
             transform: translateX(-70%) translateY(20px) rotate(-8deg) scale(0.9);
             z-index: 3;
             opacity: 0.85;
         }
 
-        /* Tilted Card pushed to the far Right */
         .card-slot.is-next {
             transform: translateX(70%) translateY(20px) rotate(8deg) scale(0.9);
             z-index: 3;

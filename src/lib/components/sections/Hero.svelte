@@ -18,7 +18,6 @@
 </section>
 
 <style>
-    /* Hero Text Section */
     .hero {
         text-align: center;
         display: flex;
@@ -48,18 +47,18 @@
 
     .hero .mobile-title,
     .hero .mobile-subtitle {
-        display: none; /* Hides text on mobile so buttons & cards are immediately visible */
+        display: none;
     }
 
     @media (max-width: 900px) {
         .hero {
-            padding-top: 0rem;
+            padding-top: 0;
             gap: 0;
         }
 
         .hero .mobile-title {
             display: block;
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-size: 2.6rem;
             padding-bottom: 0.5rem;
             font-weight: 900;
             line-height: 1.05;
@@ -80,7 +79,22 @@
 
         .hero .title,
         .hero .subtitle {
-            display: none; /* Hides text on mobile so buttons & cards are immediately visible */
+            display: none;
+        }
+		}
+    @media (max-height: 700px) {
+				.hero .mobile-subtitle {
+						display: none;
+				}
+
+				.hero {
+						padding-top: 0;
+				}
+		}
+
+    @media (min-height: 701px) {
+        .hero {
+            padding-top: 2vh;
         }
 		}
 </style>

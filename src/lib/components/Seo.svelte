@@ -14,10 +14,7 @@
 	export let description: string =
 		'Nacho Colorado is an interactive software developer creating games, applications, and web experiences with Unity, C#, gameplay systems, UI, and Svelte.';
 
-	// Actual static URL path, not a SvelteKit route ID.
 	export let path: string = '/';
-
-	// Must be a publicly accessible JPEG if using the metadata below.
 	export let image: string = '/images/social-card.jpg';
 
 	export let imageAlt: string =
@@ -32,7 +29,6 @@
 		? 'noindex, nofollow'
 		: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
-	// Structured data describes you, rather than the individual project.
 	const personJsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'Person',

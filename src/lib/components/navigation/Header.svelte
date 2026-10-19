@@ -1,4 +1,3 @@
-<!-- src/lib/landing5/Header.svelte -->
 <script lang="ts">
 	import { COMPANY_NAME } from '$lib/utils/constants.ts';
 	import { resolve } from '$app/paths';
@@ -9,16 +8,10 @@
 <header>
 	<div class="container nav-wrapper">
 		<a href={resolve('/')} class="brand">
-			<!-- Desktop Rectangular Logotype -->
-			<!-- Replace src with your actual rectangular image path -->
 			<img src="/logotype.png" alt={COMPANY_NAME} class="logotype" />
-
-			<!-- Mobile Square Favicon -->
-			<!-- Replace src with your actual square image path -->
-			<img src="/favicon.svg" alt={COMPANY_NAME} class="favicon" />
+			<img src="/android-chrome-512x512.png" alt={COMPANY_NAME} class="favicon" />
 		</a>
 
-		<!-- Added a class to target this block on mobile -->
 		<nav class="desktop-nav">
 			<a href={resolve('/#experience' as Pathname & {})}>
 				Experience
@@ -64,18 +57,17 @@
         text-decoration: none;
     }
 
-    /* Base Image Styles */
     .logotype {
         display: block;
-        height: 36px; /* Adjust height to fit your rectangular logo perfectly */
+        height: 36px;
         width: auto;
     }
 
     .favicon {
         display: none;
-        height: 40px; /* Square dimensions */
+        height: 40px;
         width: 40px;
-        border-radius: 8px; /* Smooth rounded corners matching your theme */
+        border-radius: 8px;
         object-fit: contain;
     }
 
@@ -95,7 +87,6 @@
         color: #d84b45;
     }
 
-    /* Mobile Adjustments (Hide Nav & Logotype, Show Favicon) */
     @media (max-width: 768px) {
         .logotype {
             display: none;

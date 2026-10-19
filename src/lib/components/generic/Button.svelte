@@ -1,16 +1,23 @@
 <script lang="ts">
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
+	import type { ResolvedPathname } from '$app/types';
+
+	type ButtonHref =
+		| ResolvedPathname
+		| `https://${string}`
+		| `http://${string}`
+		| `mailto:${string}`
+		| `tel:${string}`
+		| `#${string}`;
 
 	export type ButtonVariant = 'drop' | 'primary' | 'secondary';
 	export type IconType = 'arrow-up-right' | 'arrow-down' | 'arrow-right' | 'none';
 
-	interface Props extends HTMLAnchorAttributes, HTMLButtonAttributes {
-		href?: string;
+	type OwnProps = {
 		text?: string;
 		variant?: ButtonVariant;
 
-		// Color Overrides (Optional)
 		bgColor?: string;
 		textColor?: string;
 		borderColor?: string;
@@ -19,18 +26,25 @@
 		hoverBorderColor?: string;
 		shadowColor?: string;
 
-		// Icon / Arrow Settings
 		iconType?: IconType;
 		iconSrc?: string;
 
-		// Svelte 5 Snippet / Children
 		children?: Snippet;
-	}
+	};
+
+	type Props = OwnProps & (
+		| (Omit<HTMLAnchorAttributes, 'href'> & {
+		href: ButtonHref;
+	})
+		| (HTMLButtonAttributes & {
+		href?: never;
+	})
+		);
 
 	let {
 		href,
 		text = '',
-		variant = 'drop', // Defaulted to the dropped shadow look as requested
+		variant = 'drop',
 		bgColor,
 		textColor,
 		borderColor,
@@ -45,7 +59,6 @@
 		...restProps
 	}: Props = $props();
 
-	// Map predefined icon images if custom SVG is not needed
 	const defaultIconMap: Record<Exclude<IconType, 'none'>, string> = {
 		'arrow-up-right': '/icons/arrow.webp',
 		'arrow-down': '/icons/arrow-down.webp',
@@ -58,6 +71,7 @@
 </script>
 
 {#if href}
+	<!-- eslint-disable svelte/no-navigation-without-resolve -- Internal URLs are resolved by callers; external URLs and fragments are also supported. -->
 	<a
 		{href}
 		class="btn variant-{variant} {className}"
@@ -86,6 +100,7 @@
 			{/if}
 		{/if}
 	</a>
+	<!-- eslint-enable svelte/no-navigation-without-resolve -->
 {:else}
 	<button
 		class="btn variant-{variant} {className}"
@@ -117,7 +132,6 @@
 {/if}
 
 <style>
-    /* Core Base Styles */
     .btn {
         display: inline-flex;
         align-items: center;

@@ -1,32 +1,42 @@
 <script lang="ts">
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
+	import type { ResolvedPathname } from '$app/types';
 
-	interface Props extends HTMLAnchorAttributes {
-		href?: string;
+	type ButtonHref =
+		| ResolvedPathname
+		| `https://${string}`
+		| `http://${string}`
+		| `mailto:${string}`
+		| `tel:${string}`
+		| `#${string}`;
+
+	type OwnProps = {
+		href?: ButtonHref;
 		text?: string;
 		iconSrc?: string;
 		showIcon?: boolean;
 		children?: Snippet;
-	}
+	};
+
+	type Props = Omit<HTMLAnchorAttributes, 'href' | 'children'> & OwnProps;
 
 	let {
 		href = '#',
 		text = '',
 		iconSrc = '/icons/arrow-b.webp',
 		showIcon = true,
-		target = '_blank',
-		rel = 'noopener noreferrer',
 		class: className = '',
 		children,
 		...restProps
 	}: Props = $props();
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -- Internal URLs must be resolved by callers; this component also supports external URLs and fragments. -->
 <a
 	{href}
-	{target}
-	{rel}
+	target="_blank"
+	rel="noopener noreferrer"
 	class="text-button {className}"
 	{...restProps}
 >
@@ -40,6 +50,7 @@
 		<img src={iconSrc} alt="Arrow" class="link-arrow" />
 	{/if}
 </a>
+<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 <style>
     .text-button {

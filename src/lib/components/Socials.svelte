@@ -48,6 +48,8 @@
 		<!-- Email -->
 		<a
 			href=mailto:{CONTACT_EMAIL}
+			target="_blank"
+			rel="noopener noreferrer"
 			class="social-button"
 			aria-label="Send Email"
 		>
