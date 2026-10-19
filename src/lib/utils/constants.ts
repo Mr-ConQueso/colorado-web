@@ -11,3 +11,5 @@ export const FIVERR_URL = 'https://www.fiverr.com/s/2pp5xGX';
 
 export const YOUTUBE_URL = "https://www.youtube.com/@cheesylabs-gamedev";
 export const DISCORD_INVITE = "https://discord.gg/DbHhGcZPqm";
+
+export const RESUME = '/Nacho_Colorado_Resume.pdf';

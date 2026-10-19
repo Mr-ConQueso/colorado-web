@@ -1,64 +1,39 @@
+/* src/app.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Nunito:wght@700;900&display=swap');
+
 :root {
-    /* Brand Palette */
-    --bg-ivory: #F5F1E9;
-    --text-ink: #191A1D;
-    --text-slate: #73777F;
-    --accent-red: #C84242;
+    /* Heights & Spacing */
+    --header-height: 80px;
 
-    /* Typography */
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Main Brand Colors */
+    --bg-primary: #f5f3ee;
+    --bg-dot: #d5d1c8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #71757e;
+    --accent-red: #d84b45;
 
-    /* Layout */
-    --max-width: 1100px;
+    /* Fonts */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-rounded: 'Nunito', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Enable smooth scrolling across the entire site */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-ivory);
-    color: var(--text-ink);
-    font-family: var(--font-sans);
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background-color: var(--bg-primary);
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-ink);
-    margin-top: 0;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-a {
-    color: var(--text-ink);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--accent-red);
-}
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Reusable Button Style */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--accent-red);
-    color: var(--bg-ivory);
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    border: 2px solid var(--accent-red);
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--accent-red);
 }

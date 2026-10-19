@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { COMPANY_TAGLINE, GITHUB_URL, ITCHIO_URL, LINKEDIN_URL, FIVERR_URL } from '$lib/utils/constants.ts';
+	import { COMPANY_TAGLINE } from '$lib/utils/constants.ts';
+	import Socials from '$lib/components/Socials.svelte';
 </script>
 
 <footer>
@@ -8,12 +9,10 @@
 			<div class="monogram">NC</div>
 			<p>{COMPANY_TAGLINE}</p>
 		</div>
-		<div class="links">
-			<a href={GITHUB_URL} target="_blank" rel="external noopener">GitHub</a>
-			<a href={LINKEDIN_URL} target="_blank" rel="external noopener">LinkedIn</a>
-			<a href={ITCHIO_URL} target="_blank" rel="external noopener">Itch.io</a>
-			<a href={FIVERR_URL} target="_blank" rel="external noopener">Fiverr</a>
-		</div>
+			<Socials
+				align="right"
+				showLabel={true}
+			/>
 	</div>
 </footer>
 
@@ -46,19 +45,5 @@
     .brand-footer p {
         margin: 0;
         color: var(--text-slate);
-    }
-
-    .links {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    .links a {
-        color: var(--text-slate);
-        font-weight: 500;
-    }
-
-    .links a:hover {
-        color: var(--accent-red);
     }
 </style>

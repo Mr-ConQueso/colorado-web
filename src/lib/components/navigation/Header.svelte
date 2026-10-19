@@ -1,40 +1,49 @@
+<!-- src/lib/landing5/Header.svelte -->
 <script lang="ts">
-	import { COMPANY_NAME, CONTACT_EMAIL } from '$lib/utils/constants.ts';
-
-	import { page } from '$app/state';
+	import { COMPANY_NAME } from '$lib/utils/constants.ts';
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
+	import Socials from '$lib/components/Socials.svelte';
 </script>
 
 <header>
 	<div class="container nav-wrapper">
 		<a href={resolve('/')} class="brand">
-			<div class="monogram">NC</div>
-			<span class="name">{COMPANY_NAME}</span>
+			<!-- Desktop Rectangular Logotype -->
+			<!-- Replace src with your actual rectangular image path -->
+			<img src="/logotype.png" alt={COMPANY_NAME} class="logotype" />
+
+			<!-- Mobile Square Favicon -->
+			<!-- Replace src with your actual square image path -->
+			<img src="/favicon.svg" alt={COMPANY_NAME} class="favicon" />
 		</a>
-		<nav>
-			<a
-				href={resolve('/#projects' as Pathname & {})}
-				class:active={page.url.hash === '#projects'}
-				aria-current={page.url.hash === '#projects' ? 'location' : undefined}
-			>
-				Projects
+
+		<!-- Added a class to target this block on mobile -->
+		<nav class="desktop-nav">
+			<a href={resolve('/#experience' as Pathname & {})}>
+				Experience
 			</a>
 
-			<a href={resolve('/#skills' as Pathname & {})}>
-				Skills
-			</a>
-
-			<a href="mailto:{CONTACT_EMAIL}" class="contact-link">
+			<a href={resolve('/#contact' as Pathname & {})}>
 				Contact
 			</a>
 		</nav>
+
+		<div class="socials-wrapper">
+			<Socials
+				align="right"
+				showLabel={false}
+			/>
+		</div>
 	</div>
 </header>
 
 <style>
     header {
-        padding: 2rem 0;
+        height: var(--header-height);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
         position: sticky;
         top: 0;
         background-color: rgba(245, 241, 233, 0.9);
@@ -43,6 +52,7 @@
     }
 
     .nav-wrapper {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -51,31 +61,52 @@
     .brand {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        font-weight: 700;
-        font-size: 1.25rem;
+        text-decoration: none;
     }
 
-    .monogram {
-        background-color: var(--accent-red);
-        color: var(--bg-ivory);
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.9rem;
-        font-weight: 900;
-        border-radius: 2px;
+    /* Base Image Styles */
+    .logotype {
+        display: block;
+        height: 36px; /* Adjust height to fit your rectangular logo perfectly */
+        width: auto;
+    }
+
+    .favicon {
+        display: none;
+        height: 40px; /* Square dimensions */
+        width: 40px;
+        border-radius: 8px; /* Smooth rounded corners matching your theme */
+        object-fit: contain;
     }
 
     nav {
         display: flex;
         gap: 2rem;
-        font-weight: 500;
+        font-weight: 600;
     }
 
-    .active, .contact-link {
-        color: var(--accent-red);
+    nav a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+        color: #d84b45;
+    }
+
+    /* Mobile Adjustments (Hide Nav & Logotype, Show Favicon) */
+    @media (max-width: 768px) {
+        .logotype {
+            display: none;
+        }
+
+        .favicon {
+            display: block;
+        }
+
+        .desktop-nav {
+            display: none;
+        }
     }
 </style>

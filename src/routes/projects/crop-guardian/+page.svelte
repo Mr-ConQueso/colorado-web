@@ -17,6 +17,7 @@
 		<span class="tag">C#</span>
 		<span class="tag">Solo Programmer</span>
 		<span class="tag">Optimization</span>
+		<span class="tag">Nintendo 3DS</span>
 	</div>
 	<h1>Crop Guardian</h1>
 	<p class="lead">End-to-End Unity Systems and Gameplay Implementation.</p>
@@ -37,7 +38,7 @@
 			<p>Progression systems, object pooling, wave defense loops.</p>
 		</div>
 		<div class="meta-block mt-4">
-			<a href="https://pro-historic.itch.io" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
+			<a href="https://pro-historic.itch.io/crop-guardian" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
 		</div>
 	</div>
 
