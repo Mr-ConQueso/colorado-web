@@ -1,5 +1,6 @@
 import type { RequestHandler } from './$types';
 import { env as privateEnv } from '$env/dynamic/private';
+import { env } from 'cloudflare:workers';
 
 type MatomoConfig = {
 	origin: URL;
@@ -10,14 +11,8 @@ type MatomoConfig = {
 
 type RuntimeBindings = Record<string, string | undefined>;
 
-function getBindings(platform: unknown): RuntimeBindings {
-	const runtime = platform as { env?: RuntimeBindings } | undefined;
-
-	return runtime?.env ?? {};
-}
-
-function getConfig(platform: unknown): MatomoConfig | null {
-	const bindings = getBindings(platform);
+function getConfig(): MatomoConfig | null {
+	const bindings = env as unknown as RuntimeBindings;
 
 	const originValue = bindings.MATOMO_ORIGIN ?? privateEnv.MATOMO_ORIGIN;
 	const siteId = bindings.MATOMO_SITE_ID ?? privateEnv.MATOMO_SITE_ID;
@@ -350,8 +345,8 @@ async function forwardHit(request: Request, url: URL, config: MatomoConfig): Pro
 	);
 }
 
-const handle: RequestHandler = async ({ request, url, platform }) => {
-	const config = getConfig(platform);
+const handle: RequestHandler = async ({ request, url }) => {
+	const config = getConfig();
 
 	if (!config) {
 		return new Response('Matomo proxy is not configured', {
