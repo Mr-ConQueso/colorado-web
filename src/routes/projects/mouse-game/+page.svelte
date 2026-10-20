@@ -37,7 +37,7 @@
 			<p>State machines, NavMesh, NavMesh Links, UI systems.</p>
 		</div>
 		<div class="meta-block mt-4">
-			<a href="https://pro-historic.itch.io" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
+			<a href="https://pro-historic.itch.io/mouse-game" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
 		</div>
 	</div>
 

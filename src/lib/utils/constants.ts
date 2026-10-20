@@ -8,6 +8,7 @@ export const ITCHIO_URL = 'https://pro-historic.itch.io';
 export const GITHUB_URL = "https://github.com/Mr-ConQueso";
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/nacho-colorado-gonzález-149190251';
 export const FIVERR_URL = 'https://www.fiverr.com/s/2pp5xGX';
+export const MODRINTH_URL = 'https://modrinth.com/user/MrConQueso';
 
 export const YOUTUBE_URL = "https://www.youtube.com/@cheesylabs-gamedev";
 export const DISCORD_INVITE = "https://discord.gg/DbHhGcZPqm";

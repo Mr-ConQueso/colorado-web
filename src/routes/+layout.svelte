@@ -4,14 +4,13 @@
 	import '../app.css';
 	import Header from '$lib/components/navigation/Header.svelte';
 	import Footer from '$lib/components/navigation/Footer.svelte';
+	import Matomo from '$lib/components/Matomo.svelte';
+	import { PUBLIC_MATOMO_SITE_ID } from '$env/static/public';
 </script>
 
 <svelte:head>
-	<!-- Browser theme -->
 	<meta name="theme-color" content="#191A1D" />
 	<meta name="application-name" content={COMPANY_NAME} />
-
-	<!-- Icons: create these files in /static first -->
 	<link rel="icon" href="/favicon.ico" sizes="any" />
 	<link
 		rel="icon"
@@ -31,6 +30,8 @@
 	/>
 	<link rel="manifest" href="/site.webmanifest" />
 </svelte:head>
+
+<Matomo siteId={PUBLIC_MATOMO_SITE_ID} />
 
 <Header />
 

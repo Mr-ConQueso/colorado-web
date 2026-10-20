@@ -3,8 +3,8 @@
 	import CardDeck from '$lib/components/sections/CardDeck.svelte';
 	import Marquee from '$lib/components/Marquee.svelte';
 	import Hero from '$lib/components/sections/Hero.svelte';
-	import Contact from '$lib/components/sections/Contact.svelte';
 	import Seo from '$lib/components/Seo.svelte';
+	import ContactCTA from '$lib/components/sections/ContactCTA.svelte';
 </script>
 
 <Seo />
@@ -16,7 +16,7 @@
 
 <Marquee />
 <ExperienceTimeline />
-<Contact />
+<ContactCTA />
 
 <style>
     .portfolio-page {

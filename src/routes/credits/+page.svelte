@@ -1,83 +1,189 @@
 <script lang="ts">
+	import Button from '$lib/components/generic/Button.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-
 <Seo
-	title="Crop Guardian | Nacho Colorado"
-	description="An arcade-like game where you fend off hordes of aliens trying to claim your crops."
-	path="/projects/crop-guardian"
-	image="/images/social/crop-guardian-social.jpg"
-	imageAlt="Crop Guardian — game artwork and project preview"
+	title="Credits & Tech Stack | Nacho Colorado"
+	description="Discover the tech stack and assets used to build this portfolio."
+	path="/credits"
 />
 
-<div class="project-header container">
-	<div class="tags">
-		<span class="tag">Unity</span>
-		<span class="tag">C#</span>
-		<span class="tag">Solo Programmer</span>
-		<span class="tag">Optimization</span>
-		<span class="tag">Nintendo 3DS</span>
+<main class="document-page">
+	<div class="container">
+		<header class="doc-header">
+			<h1>Credits & Stack</h1>
+			<p class="last-updated">Tools, assets, and technologies used to build this portfolio</p>
+		</header>
+
+		<article class="doc-content">
+			<section>
+				<h2>1. Tech Stack</h2>
+				<p>This portfolio is built and maintained using the following core technologies:</p>
+				<ul>
+					<li><strong>SvelteKit & Svelte 5:</strong> Frontend framework and reactive state management.</li>
+					<li><strong>TypeScript:</strong> Type-safe application logic.</li>
+					<li><strong>Vite:</strong> Lightning-fast build tooling.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>2. Fonts</h2>
+				<ul>
+					<li>
+						<strong>Adwaita Sans:</strong> OFL-1.1 license by The GNOME Project (based on Inter by Rasmus Andersson).
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>3. Icons & Assets</h2>
+				<p>Thank you to the talented creators who provide accessible design assets. The icons used across this site are sourced from Flaticon:</p>
+				<ul>
+					<li>
+						<a href="https://www.flaticon.com/free-icons/github" title="github icons" target="_blank" rel="noopener noreferrer" class="text-link">
+							Github icons created by Laisa Islam Ani - Flaticon
+						</a>
+					</li>
+					<li>
+						<a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons" target="_blank" rel="noopener noreferrer" class="text-link">
+							Linkedin icons created by Smashicons - Flaticon
+						</a>
+					</li>
+					<li>
+						<a href="https://www.flaticon.com/free-icons/fiverr" title="fiverr icons" target="_blank" rel="noopener noreferrer" class="text-link">
+							Fiverr icons created by Pixel perfect - Flaticon
+						</a>
+					</li>
+					<li>
+						<a href="https://www.flaticon.com/free-icons/email" title="email icons" target="_blank" rel="noopener noreferrer" class="text-link">
+							Email icons created by Magnific - Flaticon
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>4. The Team</h2>
+				<p>While I have contributed in large parts to every project listed in this portfolio—from core technical architecture to gameplay programming—some of these ambitious interactive experiences are only possible thanks to the incredible talent and dedication of my co-founders at <strong>Pro-Historic Games</strong>. Thank you to the team:</p>
+				<ul>
+					<li>
+						<strong>Pablo Fernández</strong> (Artist) -
+						<a href="#pablo-portfolio" target="_blank" rel="noopener noreferrer" class="text-link">
+							View Portfolio
+						</a>
+					</li>
+					<li>
+						<strong>Fernando Boza</strong> (Artist) -
+						<a href="#fernando-portfolio" target="_blank" rel="noopener noreferrer" class="text-link">
+							View Portfolio
+						</a>
+					</li>
+					<li>
+						<strong>Xabier Goñi</strong> (Programmer) -
+						<a href="https://github.com/Zubialde" target="_blank" rel="noopener noreferrer" class="text-link">
+							View Portfolio
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+
+		<div class="doc-footer">
+			<Button href="/" variant="secondary" text="RETURN TO HOME" iconType="none" />
+		</div>
 	</div>
-	<h1>Crop Guardian</h1>
-	<p class="lead">End-to-End Unity Systems and Gameplay Implementation.</p>
-</div>
-
-<div class="hero-media container">
-	<video src="/videos/crop-guardian-loop.mp4" autoplay loop muted playsinline></video>
-</div>
-
-<article class="container project-content">
-	<div class="sidebar">
-		<div class="meta-block">
-			<h4>Role</h4>
-			<p>Sole Programmer (Team Project)</p>
-		</div>
-		<div class="meta-block">
-			<h4>Focus</h4>
-			<p>Progression systems, object pooling, wave defense loops.</p>
-		</div>
-		<div class="meta-block mt-4">
-			<a href="https://pro-historic.itch.io/crop-guardian" target="_blank" rel="noopener noreferrer" class="btn-primary">Play on Itch.io</a>
-		</div>
-	</div>
-
-	<div class="main-content">
-		<h2>Complete Engineering Ownership</h2>
-		<p>Crop Guardian is an arcade-style game in which players defend their crops against waves of invading aliens. As the project's sole programmer and Unity developer, I was responsible for taking the concept from design to a fully playable experience, integrating all gameplay logic and art assets.</p>
-
-		<h2>Progression & Game Loop</h2>
-		<p>I architected the structured wave-based levels and an endless mode. To give the game a satisfying progression loop, I developed a weapon shop and upgrade system where players spend rewards earned from defeating enemies and bosses.</p>
-
-		<div class="technical-callout">
-			<img src="/images/crop-guardian-pooling.jpg" alt="Diagram showing object pooling architecture" />
-			<span class="caption">Memory optimization using an Object Pooling system.</span>
-		</div>
-
-		<h2>Optimization via Object Pooling</h2>
-		<p>Because arcade defense games generate high volumes of projectiles, enemies, and visual effects, standard instantiation would have caused significant memory allocation spikes and garbage collection stutter. I implemented a robust object pooling system for enemies, audio sources, particle effects, and decals to reuse assets efficiently and maintain frame stability.</p>
-	</div>
-</article>
+</main>
 
 <style>
-    /* Use the same CSS block provided in the Mouse Game file above */
-    .project-header { padding: 6rem 0 2rem 0; }
-    .tags { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .tag { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-red); background: rgba(200, 66, 66, 0.1); padding: 0.25rem 0.5rem; border-radius: 4px; text-transform: uppercase; font-weight: 600; }
-    .project-header h1 { font-size: 4rem; margin-bottom: 0.5rem; }
-    .lead { font-size: 1.5rem; color: var(--text-slate); margin: 0; }
-    .hero-media { margin-bottom: 4rem; }
-    .hero-media video { width: 100%; border-radius: 12px; background-color: var(--text-ink); }
-    .project-content { display: grid; grid-template-columns: 250px 1fr; gap: 4rem; align-items: start; }
-    .meta-block { margin-bottom: 2rem; }
-    .meta-block h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-slate); margin-bottom: 0.5rem; }
-    .meta-block p { font-size: 1rem; font-weight: 500; margin: 0; }
-    .mt-4 { margin-top: 2rem; }
-    .main-content h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
-    .main-content h2:first-child { margin-top: 0; }
-    .main-content p { font-size: 1.125rem; color: var(--text-slate); margin-bottom: 1.5rem; }
-    .technical-callout { margin: 3rem 0; background: #fff; padding: 1rem; border: 1px solid rgba(25, 26, 29, 0.1); border-radius: 8px; }
-    .technical-callout img { width: 100%; border-radius: 4px; margin-bottom: 1rem; }
-    .caption { font-size: 0.9rem; color: var(--text-slate); font-family: var(--font-mono); }
-    @media (max-width: 900px) { .project-content { grid-template-columns: 1fr; gap: 2rem; } }
+    .document-page {
+        min-height: calc(100dvh - var(--header-height));
+        background-color: var(--bg-primary);
+        background-image: radial-gradient(var(--bg-dot) 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+        padding: 4rem 0;
+    }
+
+    .doc-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .doc-header h1 {
+        font-family: var(--font-rounded);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 900;
+        color: var(--text-primary);
+        margin: 0 0 0.5rem 0;
+        letter-spacing: -1px;
+    }
+
+    .last-updated {
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .doc-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 3rem 4rem;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .doc-content section {
+        margin-bottom: 2.5rem;
+    }
+
+    .doc-content section:last-child {
+        margin-bottom: 0;
+    }
+
+    .doc-content h2 {
+        font-family: var(--font-rounded);
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin: 0 0 1rem 0;
+        color: var(--text-primary);
+    }
+
+    .doc-content p, .doc-content li {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #4a4d55;
+        margin: 0 0 1rem 0;
+    }
+
+    .doc-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-link {
+        color: var(--accent-red);
+        text-decoration: none;
+        font-weight: 700;
+        transition: opacity 0.2s;
+    }
+
+    .text-link:hover {
+        opacity: 0.8;
+    }
+
+    .doc-footer {
+        max-width: 800px;
+        margin: 3rem auto 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .doc-content {
+            padding: 2rem;
+        }
+    }
 </style>

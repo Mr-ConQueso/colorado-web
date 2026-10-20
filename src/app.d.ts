@@ -8,6 +8,11 @@ declare global {
             ctx: ExecutionContext
         }
     }
+	interface Window {
+		_paq?: unknown[][];
+		__matomoConfigured?: boolean;
+		__matomoLastPageUrl?: string;
+	}
 }
 
 export {};

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/generic/ProjectCard.svelte';
 	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 
 	export let cards = [
 		{
@@ -15,7 +16,7 @@
 			tagBgColor: '#d5b8ff',
 			tagTextColor: '#2b0060',
 			buttonBgColor: '#4e21ab',
-			buttonLink: resolve('/projects/modding')
+			buttonLink: '/projects/modding'
 		},
 		{
 			id: 'mouse-game',
@@ -29,7 +30,7 @@
 			tagBgColor: '#ffb8d2',
 			tagTextColor: '#50001c',
 			buttonBgColor: '#a81143',
-			buttonLink: resolve('/projects/mouse-game')
+			buttonLink: '/projects/mouse-game'
 		},
 		{
 			id: 'crop-guardian',
@@ -43,7 +44,7 @@
 			tagBgColor: '#fce476',
 			tagTextColor: '#5e3700',
 			buttonBgColor: '#a75d00',
-			buttonLink: resolve('/projects/crop-guardian')
+			buttonLink: '/projects/crop-guardian'
 		},
 		{
 			id: 'symbiosis',
@@ -57,7 +58,7 @@
 			tagBgColor: '#a2f3dc',
 			tagTextColor: '#01402e',
 			buttonBgColor: '#0a8260',
-			buttonLink: resolve('/projects/symbiosis')
+			buttonLink: '/projects/symbiosis'
 		},
 		{
 			id: 'hextrak',
@@ -65,13 +66,13 @@
 			logoHeight: '110px',
 			characterSrc: '/images/projects/hextrak/BoneMarauder.png',
 			characterHeight: '45%',
-			tags: ['NETWORKING', 'UI/UX', 'MOBILE'],
-			description: 'Local-first cross-platform application architectures.',
+			tags: ['React Native', 'H3 Grid', 'MOBILE'],
+			description: 'A privacy-first exploration app tracking real-world movements on a local hexagonal grid.',
 			bgGradient: 'linear-gradient(180deg, #3855ff 0%, #1527a0 100%)',
 			tagBgColor: '#b8c8ff',
 			tagTextColor: '#091452',
 			buttonBgColor: '#1d31b8',
-			buttonLink: resolve('/projects/hextrak')
+			buttonLink: '/projects/hextrak'
 		}
 	];
 
@@ -142,6 +143,7 @@
 					tagBgColor={card.tagBgColor}
 					tagTextColor={card.tagTextColor}
 					buttonBgColor={card.buttonBgColor}
+					buttonLink={resolve(card.buttonLink as Pathname & {})}
 				/>
 			</div>
 		{/each}

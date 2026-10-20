@@ -2,6 +2,7 @@
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 	import type { ResolvedPathname } from '$app/types';
+	import { trackMatomoEvent } from '$lib/analytics/matomo';
 
 	type ButtonHref =
 		| ResolvedPathname
@@ -82,6 +83,11 @@
 		style:--custom-hover-text={hoverTextColor}
 		style:--custom-hover-border={hoverBorderColor}
 		style:--custom-shadow-color={shadowColor}
+		onclick={() =>
+		trackMatomoEvent(
+			'Portfolio',
+			'Button clicked'
+		)}
 		{...restProps as HTMLAnchorAttributes}
 	>
 		<span class="btn-content">
