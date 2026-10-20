@@ -5,7 +5,7 @@
 	import Header from '$lib/components/navigation/Header.svelte';
 	import Footer from '$lib/components/navigation/Footer.svelte';
 	import Matomo from '$lib/components/Matomo.svelte';
-	import { PUBLIC_MATOMO_SITE_ID } from '$env/static/public';
+	import { PUBLIC_MATOMO_SITE_ID, PUBLIC_MATOMO_URL } from '$env/static/public';
 </script>
 
 <svelte:head>
@@ -31,7 +31,7 @@
 	<link rel="manifest" href="/site.webmanifest" />
 </svelte:head>
 
-<Matomo siteId={PUBLIC_MATOMO_SITE_ID} />
+<Matomo matomoUrl={PUBLIC_MATOMO_URL} siteId={PUBLIC_MATOMO_SITE_ID} />
 
 <Header />
 

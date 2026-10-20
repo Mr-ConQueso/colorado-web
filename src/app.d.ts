@@ -1,5 +1,3 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
 declare global {
 	namespace App {
         interface Platform {
@@ -10,8 +8,6 @@ declare global {
     }
 	interface Window {
 		_paq?: unknown[][];
-		__matomoConfigured?: boolean;
-		__matomoLastPageUrl?: string;
 	}
 }
 

@@ -1,84 +1,59 @@
-
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 
+	export let matomoUrl: string;
 	export let siteId: string;
 
-	const trackerUrl = '/matomo.php';
+	const baseUrl = matomoUrl.endsWith('/')
+		? matomoUrl
+		: `${matomoUrl}/`;
 
-	function getTrackedUrl(): string {
-		const current = new URL(window.location.href);
-		const tracked = new URL(current.pathname, current.origin);
-
-		// Preserve campaign attribution without automatically recording
-		// every query parameter that may contain private information.
-		for (const key of [
-			'utm_source',
-			'utm_medium',
-			'utm_campaign',
-			'utm_content',
-			'utm_term'
-		]) {
-			const value = current.searchParams.get(key);
-			if (value) tracked.searchParams.set(key, value);
-		}
-
-		// The fragment is deliberately omitted.
-		return tracked.href;
-	}
+	let trackerConfigured = false;
+	let lastTrackedUrl = '';
 
 	function trackPageView(): void {
-		const queue = window._paq;
+		if (!trackerConfigured || !window._paq) return;
 
-		if (!queue || !window.__matomoConfigured) return;
+		const currentUrl = window.location.href;
 
-		const currentUrl = getTrackedUrl();
-		const previousUrl = window.__matomoLastPageUrl;
+		if (currentUrl === lastTrackedUrl) return;
 
-		// Avoid recording the same page twice during initial hydration.
-		if (currentUrl === previousUrl) return;
-
-		if (previousUrl) {
-			queue.push(['setReferrerUrl', previousUrl]);
+		if (lastTrackedUrl) {
+			window._paq.push(['setReferrerUrl', lastTrackedUrl]);
 		}
 
-		queue.push(['setCustomUrl', currentUrl]);
-		queue.push(['setDocumentTitle', document.title]);
-		queue.push(['trackPageView']);
+		window._paq.push(['setCustomUrl', currentUrl]);
+		window._paq.push(['setDocumentTitle', document.title]);
+		window._paq.push(['trackPageView']);
 
-		window.__matomoLastPageUrl = currentUrl;
+		lastTrackedUrl = currentUrl;
 	}
 
 	onMount(() => {
-		window._paq = window._paq ?? [];
-		const queue = window._paq;
+		const queue = (window._paq = window._paq ?? []);
 
-		if (!window.__matomoConfigured) {
-			queue.push(['disableCookies']);
-			queue.push(['setTrackerUrl', trackerUrl]);
-			queue.push(['setSiteId', siteId]);
-			queue.push(['enableLinkTracking']);
+		queue.push(['disableCookies']);
+		queue.push(['setTrackerUrl', `${baseUrl}matomo.php`]);
+		queue.push(['setSiteId', siteId]);
+		queue.push(['enableLinkTracking']);
 
-			window.__matomoConfigured = true;
-		}
+		trackerConfigured = true;
 
-		// Load the tracker through our same-origin endpoint.
 		if (!document.getElementById('matomo-script')) {
 			const script = document.createElement('script');
 
 			script.id = 'matomo-script';
+			script.type = 'text/javascript';
 			script.async = true;
-			script.src = trackerUrl;
+			script.src = `${baseUrl}matomo.js`;
 
 			document.head.appendChild(script);
 		}
 
-		// Track the initial page.
 		trackPageView();
 	});
 
-	// Track subsequent SvelteKit client-side navigations.
 	afterNavigate(() => {
 		if (typeof window !== 'undefined') {
 			trackPageView();
