@@ -10,10 +10,10 @@
 <style>
     .marquee-container {
         width: 100%;
-        background: var(--black);
-        color: var(--pink);
-        border-top: var(--border-thick) solid var(--black);
-        border-bottom: var(--border-thick) solid var(--black);
+        background: var(--black, #1a1a1a);
+        color: var(--pink, #ff5277);
+        border-top: var(--border-thick, 4px) solid var(--black, #1a1a1a);
+        border-bottom: var(--border-thick, 4px) solid var(--black, #1a1a1a);
         padding: 1rem 0;
         overflow: hidden;
         position: relative;
