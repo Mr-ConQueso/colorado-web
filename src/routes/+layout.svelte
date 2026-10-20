@@ -4,7 +4,7 @@
 	import '../app.css';
 	import Header from '$lib/components/navigation/Header.svelte';
 	import Footer from '$lib/components/navigation/Footer.svelte';
-	import Matomo from '$lib/components/Matomo.svelte';
+	import Matomo from '$lib/analytics/Matomo.svelte';
 	import { PUBLIC_MATOMO_SITE_ID, PUBLIC_MATOMO_URL } from '$env/static/public';
 </script>
 

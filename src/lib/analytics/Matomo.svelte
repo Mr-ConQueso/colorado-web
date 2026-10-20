@@ -30,9 +30,32 @@
 		lastTrackedUrl = currentUrl;
 	}
 
+	function respectsDoNotTrack(): boolean {
+		const nav = window.navigator as Navigator & {
+			doNotTrack?: string | null;
+		};
+
+		const value = nav.doNotTrack;
+
+		return value === '1' || value === 'yes';
+	}
+
+	function hasAnalyticsOptedOut(): boolean {
+		return document.cookie
+			.split(';')
+			.some(cookie =>
+				cookie.trim() === 'site_analytics_optout=1'
+			);
+	}
+
 	onMount(() => {
+		if (respectsDoNotTrack() || hasAnalyticsOptedOut()) {
+			return;
+		}
+
 		const queue = (window._paq = window._paq ?? []);
 
+		queue.push(['setDoNotTrack', true]);
 		queue.push(['disableCookies']);
 		queue.push(['setTrackerUrl', `${baseUrl}matomo.php`]);
 		queue.push(['setSiteId', siteId]);

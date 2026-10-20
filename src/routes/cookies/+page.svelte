@@ -1,3 +1,4 @@
+<!-- src/routes/cookies/+page.svelte -->
 <script lang="ts">
 	import Button from '$lib/components/generic/Button.svelte';
 	import Seo from '$lib/components/Seo.svelte';
@@ -13,15 +14,15 @@
 	<div class="container">
 		<header class="doc-header">
 			<h1>Cookie Policy</h1>
-			<p class="last-updated">Privacy by default.</p>
+			<p class="last-updated">Privacy by default. Minimal essential cookies.</p>
 		</header>
 
 		<div class="doc-content settings-panel">
 			<!-- Essential Cookies -->
 			<div class="cookie-group">
 				<div class="cookie-info">
-					<h3>Language Preferences</h3>
-					<p>The only cookie used on this site is a strictly necessary technical cookie. It is used exclusively to remember your preferred language settings so you don't have to change them on every visit. It contains no personal data.</p>
+					<h3>Essential & Functional Cookies</h3>
+					<p>This website uses only two strictly necessary cookies. One remembers your language preferences so you don't have to configure them on every visit. The other remembers your privacy preference if you choose to opt out of analytics. Neither cookie contains personal tracking data.</p>
 				</div>
 				<div class="toggle-wrapper">
 					<span class="status-badge required">Always Active</span>
@@ -32,7 +33,7 @@
 			<div class="cookie-group disabled-group">
 				<div class="cookie-info">
 					<h3>Performance & Analytics</h3>
-					<p>I use Aptabase for privacy-first analytics, which operates entirely without cookies. Your browsing activity is not tracked across sessions.</p>
+					<p>I use Matomo Analytics to understand aggregate traffic. The tracker is explicitly configured to disable all cookies. It transmits technical data (like browser type and screen resolution) securely, but your browsing activity is never tracked across sessions via cookies.</p>
 				</div>
 				<div class="toggle-wrapper">
 					<span class="status-badge none">Not Used</span>
@@ -42,8 +43,8 @@
 			<!-- Marketing Cookies -->
 			<div class="cookie-group disabled-group">
 				<div class="cookie-info">
-					<h3>Marketing Cookies</h3>
-					<p>I do not use any marketing, advertising, or third-party tracking cookies on this portfolio.</p>
+					<h3>Marketing & Third-Party Cookies</h3>
+					<p>I do not use any marketing, advertising, or third-party tracking cookies on this portfolio. No external networks have access to your data.</p>
 				</div>
 				<div class="toggle-wrapper">
 					<span class="status-badge none">Not Used</span>
